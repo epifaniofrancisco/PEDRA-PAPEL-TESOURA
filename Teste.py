@@ -1,12 +1,16 @@
 '''
-Autor: Epifânio Francisco           ||  ACEDE
-Data: 01/04/2021  -------     18:40 ||
-Função: Script para jogar Pedra, Papel, ou Tesoura
+ ** Autor: Epifânio Francisco           ||  A C E D E
+ ** Data: 01/04/2021  -------     18:40 ||
+ ** Função: Script para jogar Pedra, Papel, ou Tesoura
 '''
 
 import random
 
+from Voz.TTS import fala
+
 palavras = ('PEDRA', 'PAPEL', 'TESOURA')
+
+fala("PEDRA PAPEL TESOURA")
 
 while True:
     computador = random.choice(palavras)
@@ -18,25 +22,25 @@ while True:
         break
 
     if jogador == computador:
-        print('EMPATE')
-        print("{} vs {}.".format(jogador, computador))
+        fala('EMPATE')
+        fala("{} contra {}.".format(jogador, computador))
 
     # -> PERDENDO
     elif jogador == 'PEDRA' and computador == 'PAPEL':
-        print('VOCÊ PERDEU. {} EMBRULHA {}.'.format(computador, jogador))
-        print(jogador, computador)
+        fala('VOCÊ PERDEU. {} EMBRULHA {}.'.format(computador, jogador))
+
     elif jogador == 'PAPEL' and computador == 'TESOURA':
-        print('VOCÊ PERDEU. {} CORTA O {}.'.format(computador, jogador))
-        print(jogador, computador)
+        fala('VOCÊ PERDEU. {} CORTA O {}.'.format(computador, jogador))
+
     elif jogador == 'TESOURA' and computador == 'PEDRA':
-        print('VOCÊ PERDEU. {} ESMAGA A {}.'.format(computador, jogador))
+        fala('VOCÊ PERDEU. {} ESMAGA A {}.'.format(computador, jogador))
 
     # -> GANHANDO
     elif jogador == 'PAPEL' and computador == 'PEDRA':
-        print('VOCÊ GANHOU. {} EMBRULHA {}.'.format(jogador, computador))
-        print(jogador, computador)
+        fala('VOCÊ GANHOU. {} EMBRULHA {}.'.format(jogador, computador))
+
     elif jogador == 'TESOURA' and computador == 'PAPEL':
-        print('VOCÊ GANHOU. {} CORTA {}'.format(jogador, computador))
-        print(jogador, computador)
+        'VOCÊ GANHOU. {} CORTA {}'.format(jogador, computador)
+
     elif jogador == 'PEDRA' and computador == 'TESOURA':
-        print('VOCÊ GANHOU. {} ESMAGA A {}.'.format(jogador, computador))
+        fala('VOCÊ GANHOU. {} ESMAGA A {}.'.format(jogador, computador))
